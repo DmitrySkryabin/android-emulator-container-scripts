@@ -157,6 +157,7 @@ class DockerContainer:
         - It is available locally
         """
         local = self.docker_image()
+        print(f'FULL NAME: {local}')
 
         # Available locally, get the first tag
         if local:
