@@ -163,7 +163,7 @@ class DockerContainer:
         if local:
             return local.tags[0]
 
-        return ""
+        return "emulator"
 
     def latest_name(self):
         if self.repo:
