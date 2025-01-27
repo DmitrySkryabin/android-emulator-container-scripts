@@ -136,8 +136,8 @@ def create_docker_image_interactive(args):
     emu_zip = emulator.download("linux")
     logging.info("Processing %s, %s", img, emu)
     sys_docker = SystemImageContainer(img, args.repo)
-    print(f'INTERACTIVE: {args}')
-    print(f'INTERACTIVE: {args.dest}')
+    print(f'INTERACTIVE ARGS: {args}')
+    print(f'INTERACTIVE ARGS.DEST: {args.dest}')
     if not sys_docker.available() and not sys_docker.can_pull():
         sys_docker.build(args.dest)
 
