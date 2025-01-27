@@ -139,10 +139,10 @@ def create_docker_image_interactive(args):
     print(f'INTERACTIVE ARGS: {args}')
     print(f'INTERACTIVE ARGS.DEST: {args.dest}')
     if not sys_docker.available() and not sys_docker.can_pull():
-        sys_docker.build(args.dest)
+        sys_docker.build(args.dest, 'sys')
 
     emu_docker = EmulatorContainer(emu_zip, sys_docker, args.repo, metrics)
-    emu_docker.build(args.dest)
+    emu_docker.build(args.dest, 'emu')
 
     if args.start:
         emu_docker.launch({"5555/tcp": 5555, "8554/tcp": 8554})
