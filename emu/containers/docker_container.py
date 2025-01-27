@@ -88,7 +88,7 @@ class DockerContainer:
             print("Unable to start the container, try running it as:")
             print(f"./run.sh {image.id}")
 
-    def create_container(self, dest: Path, tag) -> str:
+    def create_container(self, dest: Path, tag_name) -> str:
         """Creates the docker container, returning the sha of the container, or None in case of failure."""
         identity = None
         image_tag = self.full_name()
@@ -101,10 +101,10 @@ class DockerContainer:
                 "build(path=%s, tag=%s, rm=True, decode=True)", dest, image_tag
             )
             logging.info(
-                "NEW build(path=%s, tag=%s, rm=True, decode=True)", dest, tag
+                "NEW build(path=%s, tag=%s, rm=True, decode=True)", dest, tag_name
             )
             result = api_client.build(
-                path=str(dest.absolute()), tag=tag, rm=True, decode=True,
+                path=str(dest.absolute()), tag=tag_name, rm=True, decode=True,
                 platform=DockerContainer.DEFAULT_PLATFORM
             )
             for entry in result:
