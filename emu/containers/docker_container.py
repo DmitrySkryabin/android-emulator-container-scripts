@@ -92,6 +92,8 @@ class DockerContainer:
         """Creates the docker container, returning the sha of the container, or None in case of failure."""
         identity = None
         image_tag = self.full_name()
+        print(f'IMAGE_TAG: {image_tag}')
+        print(f'IMAGE_TAG type: {type(image_tag)}')
         print(f"docker build {dest} -t {image_tag}")
         try:
             api_client = self.get_api_client()

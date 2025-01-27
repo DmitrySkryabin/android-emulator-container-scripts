@@ -118,6 +118,7 @@ def create_docker_image(args):
 
 
 def create_docker_image_interactive(args):
+    print(f'CREAT_DOCKER_IMAGE_INTERACTIVE: {args}')
     """Interactively create a docker image by selecting the desired combination from a menu."""
     img = emu_downloads_menu.select_image(args.arm) or sys.exit(1)
     emulator = emu_downloads_menu.select_emulator() or sys.exit(1)
