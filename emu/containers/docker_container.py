@@ -101,7 +101,7 @@ class DockerContainer:
                 "build(path=%s, tag=%s, rm=True, decode=True)", dest, image_tag
             )
             result = api_client.build(
-                path=str(dest.absolute()), tag=image_tag, rm=True, decode=True,
+                path=str(dest.absolute()), tag=f'{image_tag}', rm=True, decode=True,
                 platform=DockerContainer.DEFAULT_PLATFORM
             )
             for entry in result:
