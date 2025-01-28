@@ -104,7 +104,7 @@ class DockerContainer:
                 "NEW build(path=%s, tag=%s, rm=True, decode=True)", dest, tag_name
             )
             result = api_client.build(
-                path=str(dest.absolute()), rm=True, decode=True,
+                path=str(dest.absolute()), tag=tag_name, rm=True, decode=True,
                 platform=DockerContainer.DEFAULT_PLATFORM
             )
             for entry in result:
