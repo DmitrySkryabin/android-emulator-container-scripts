@@ -26,6 +26,18 @@ if (development) {
 
 console.log(`Connecting to grpc at ${EMULATOR_GRPC}`);
 
+fetch(EMULATOR_GRPC)
+  .then((response) => {
+     if (response.status === 200) {
+       console.log('Envoy: success');
+     } else {
+       console.log('Envoy: error');
+     }
+   })
+  .catch((error) => {
+       console.log('Envoy: network error: ' + error);
+   })
+
 const useStyles = makeStyles((theme) => ({
   root: {
     // some CSS that accesses the theme
@@ -62,6 +74,8 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
         <div>{EMULATOR_GRPC}</div>
+        <div>{auth}</div>
+        <div></div>
         <EmulatorScreen uri={EMULATOR_GRPC} auth={auth} />
     </ThemeProvider>
   );
