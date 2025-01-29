@@ -39,24 +39,29 @@ const theme = createTheme({
 const auth = new TokenProviderService();
 
 export default function App() {
-  const [authorized, setAuthorized] = useState(false);
+  // const [authorized, setAuthorized] = useState(false);
 
-  useEffect(() => {
-    const handleAuthorization = (a) => {
-      setAuthorized(a);
-    };
+  // useEffect(() => {
+  //   const handleAuthorization = (a) => {
+  //     setAuthorized(a);
+  //   };
 
-    auth.on("authorized", handleAuthorization);
-  }, []);
+  //   auth.on("authorized", handleAuthorization);
+  // }, []);
 
 
+  // return (
+  //   <ThemeProvider theme={theme}>
+  //     {authorized ? (
+  //       <EmulatorScreen uri={EMULATOR_GRPC} auth={auth} />
+  //     ) : (
+  //       <LoginPage auth={auth} />
+  //     )}
+  //   </ThemeProvider>
+  // );
   return (
     <ThemeProvider theme={theme}>
-      {authorized ? (
         <EmulatorScreen uri={EMULATOR_GRPC} auth={auth} />
-      ) : (
-        <LoginPage auth={auth} />
-      )}
     </ThemeProvider>
   );
 }
