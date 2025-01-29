@@ -26,8 +26,6 @@ if (development) {
 
 console.log(`Connecting to grpc at ${EMULATOR_GRPC}`);
 
-const fetcher = () => fetch(EMULATOR_GRPC).then((response) => {console.log(response.status)})
-
 
 const useStyles = makeStyles((theme) => ({
 root: {
@@ -62,11 +60,16 @@ export default function App() {
   //     )}
   //   </ThemeProvider>
   // );
+  const fetching = async () => {
+    const response = await fetch(
+      EMULATOR_GRPC
+    ).then((response) => {console.log(response.status); console.log(response.text)});
+  };
   return (
     <ThemeProvider theme={theme}>
         <div>{EMULATOR_GRPC}</div>
         <div>{auth}</div>
-        <div>{fetcher()}</div>
+        <div>{fetching()}</div>
         <div>hehehehe</div>
         <EmulatorScreen uri={EMULATOR_GRPC} auth={auth} />
     </ThemeProvider>
