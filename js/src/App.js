@@ -26,22 +26,13 @@ if (development) {
 
 console.log(`Connecting to grpc at ${EMULATOR_GRPC}`);
 
-fetch(EMULATOR_GRPC)
-  .then((response) => {
-     if (response.status === 200) {
-       console.log('Envoy: success');
-     } else {
-       console.log('Envoy: error');
-     }
-   })
-  .catch((error) => {
-       console.log('Envoy: network error: ' + error);
-   })
+const fetcher = () => fetch(EMULATOR_GRPC).then((response) => {console.log(response.status)})
+
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    // some CSS that accesses the theme
-  }
+root: {
+  // some CSS that accesses the theme
+}
 }));
 
 const theme = createTheme({
