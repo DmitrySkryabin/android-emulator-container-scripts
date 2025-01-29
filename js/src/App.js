@@ -62,7 +62,7 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
         <div>{EMULATOR_GRPC}</div>
-        <EmulatorScreen uri={EMULATOR_GRPC} auth={auth} />
+        <EmulatorScreen uri={EMULATOR_GRPC} />
     </ThemeProvider>
   );
 }
