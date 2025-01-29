@@ -50,7 +50,7 @@ export default function App() {
   //   };
 
   //   auth.on("authorized", handleAuthorization);
-  // }, []);
+  // }, []);a
 
 
   // return (
@@ -67,6 +67,7 @@ export default function App() {
         <div>{EMULATOR_GRPC}</div>
         <div>{auth}</div>
         <div>{fetcher()}</div>
+        <div>hehehehe</div>
         <EmulatorScreen uri={EMULATOR_GRPC} auth={auth} />
     </ThemeProvider>
   );
