@@ -48,7 +48,7 @@ export default function App() {
     };
 
     auth.on("authorized", handleAuthorization);
-  }, []);a
+  }, []);
 
 
   return (
