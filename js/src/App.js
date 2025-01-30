@@ -40,37 +40,37 @@ const theme = createTheme({
 const auth = new TokenProviderService();
 
 export default function App() {
-  // const [authorized, setAuthorized] = useState(false);
+  const [authorized, setAuthorized] = useState(false);
 
-  // useEffect(() => {
-  //   const handleAuthorization = (a) => {
-  //     setAuthorized(a);
-  //   };
-
-  //   auth.on("authorized", handleAuthorization);
-  // }, []);a
-
-
-  // return (
-  //   <ThemeProvider theme={theme}>
-  //     {authorized ? (
-  //       <EmulatorScreen uri={EMULATOR_GRPC} auth={auth} />
-  //     ) : (
-  //       <LoginPage auth={auth} />
-  //     )}
-  //   </ThemeProvider>
-  // );
-  const fetching = async () => {
-    const response = await fetch(
-        EMULATOR_GRPC
-    ).then((response) => {console.log('GRPC:' + response.status); console.log('GRPC:' + response.text)});
+  useEffect(() => {
+    const handleAuthorization = (a) => {
+      setAuthorized(a);
     };
-  fetching()
+
+    auth.on("authorized", handleAuthorization);
+  }, []);a
+
+
   return (
     <ThemeProvider theme={theme}>
-        <div>{EMULATOR_GRPC}</div>
-        <div>hehehehe</div>
+      {authorized ? (
         <EmulatorScreen uri={EMULATOR_GRPC} auth={auth} />
+      ) : (
+        <LoginPage auth={auth} />
+      )}
     </ThemeProvider>
   );
+//   const fetching = async () => {
+//     const response = await fetch(
+//         EMULATOR_GRPC
+//     ).then((response) => {console.log('GRPC:' + response.status); console.log('GRPC:' + response.text)});
+//     };
+//   fetching()
+//   return (
+//     <ThemeProvider theme={theme}>
+//         <div>{EMULATOR_GRPC}</div>
+//         <div>hehehehe</div>
+//         <EmulatorScreen uri={EMULATOR_GRPC} auth={auth} />
+//     </ThemeProvider>
+//   );
 }
